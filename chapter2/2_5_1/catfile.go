@@ -1,5 +1,11 @@
 package main
 
+//----------------------------------------
+// catfile.go
+// A simple program that reads and prints the contents of files
+// provided as command-line arguments using goroutines.
+// Usage: go run catfile.go file1.txt file2.txt
+//----------------------------------------
 import (
 	"fmt"
 	"os"
