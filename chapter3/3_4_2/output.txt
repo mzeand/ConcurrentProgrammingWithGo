@@ -1,0 +1,41 @@
+$ go run -race wordfrequency.go
+
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1009.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1005.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1008.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1004.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1000.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1001.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1007.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1002.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1003.txt
+Fetching URL: https://www.rfc-editor.org/rfc/rfc1006.txt
+==================
+WARNING: DATA RACE
+Read at 0x00c000124db0 by goroutine 14:
+  runtime.mapdelete_fast64()
+      /Users/xxxxxx/sdk/go1.25.4/src/internal/runtime/maps/runtime_fast64_swiss.go:502 +0x8c
+  main.countWords()
+      /Users/xxxxxx/github.com/mzeand/ConcurrentProgrammingWithGo/chapter3/3_4_1/wordfrequency.go:23 +0x248
+  main.main.gowrap1()
+      /Users/xxxxxx/github.com/mzeand/ConcurrentProgrammingWithGo/chapter3/3_4_1/wordfrequency.go:33 +0x48
+
+Previous write at 0x00c000124db0 by goroutine 8:
+  runtime.mapaccess2_faststr()
+      /Users/xxxxxx/sdk/go1.25.4/src/internal/runtime/maps/runtime_faststr_swiss.go:162 +0x29c
+  main.countWords()
+      /Users/xxxxxx/github.com/mzeand/ConcurrentProgrammingWithGo/chapter3/3_4_1/wordfrequency.go:23 +0x27c
+  main.main.gowrap1()
+      /Users/xxxxxx/github.com/mzeand/ConcurrentProgrammingWithGo/chapter3/3_4_1/wordfrequency.go:33 +0x48
+
+Goroutine 14 (running) created at:
+  main.main()
+      /Users/xxxxxx/github.com/mzeand/ConcurrentProgrammingWithGo/chapter3/3_4_1/wordfrequency.go:33 +0x3c
+
+Goroutine 8 (running) created at:
+  main.main()
+      /Users/xxxxxx/github.com/mzeand/ConcurrentProgrammingWithGo/chapter3/3_4_1/wordfrequency.go:33 +0x3c
+==================
+
+ :
+ :
