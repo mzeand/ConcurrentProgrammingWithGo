@@ -1,5 +1,11 @@
 package main
 
+//----------------------------------------
+// grepdir.go
+// A simple program that searches for a keyword in all files
+// within a specified directory using goroutines.
+// Usage: go run grepdir.go keyword dirname
+//----------------------------------------
 import (
 	"fmt"
 	"os"
